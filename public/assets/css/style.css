@@ -6,10 +6,12 @@
     filter: grayscale(80%);
     padding: 80px;
 }
-.banner h1 {
+.banner h1, 
+.banner h2 {
 	text-align: center;
 	color: #fff;
 	font-family: Georgia, serif;
+	font-style: italic;
 	font-size: 95px;
 	font-weight: bolder;
    -webkit-text-fill-color: white;  
@@ -18,13 +20,22 @@
 
 }
 
+.banner h2 {
+	font-size: 80px;
+	font-style: normal;
+}
+
 @media  only screen and (max-width: 780px){
-	.banner h1{
+	.banner h1, .banner h2{
 		font-size: 72px;
+
+	}
+	.jumbotron{
+		padding: 20px;
 	}
 }
 @media  only screen and (max-width: 500px){
-	.banner h1{
+	.banner h1, .banner h2{
 		font-size: 48px;
 	}
 }
