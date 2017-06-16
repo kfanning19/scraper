@@ -1,0 +1,40 @@
+.jumbotron {
+    padding: 0px;
+    background-image: url("http://mobileadvertisingwatch.com/wp-content/uploads/2014/03/The-Wall-Street-Journal-Launches-Native-Ad-Division1.jpg");
+    background-size: 100% 500px;
+    height: 500px;
+    filter: grayscale(80%);
+    padding: 80px;
+}
+.banner h1 {
+	text-align: center;
+	color: #fff;
+	font-family: Georgia, serif;
+	font-size: 95px;
+}
+
+.navbar {
+    margin-bottom: 15px;
+}
+
+.panel {
+	background-color: rgba(64, 0, 128, .9);
+	color: #fff;
+	text-align: center;
+}
+
+#scrapeModal h4{
+	padding: 10px;
+	text-align: center;
+	font-size: 22px;
+	margin-top: 25px;
+}
+#scrapeModal button{
+	text-align: right;
+}
+.modal-footer{
+	border-top: none;
+}
+.modal-body{
+	padding-bottom: 0px;
+}

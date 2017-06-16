@@ -1,4 +1,4 @@
-    <nav class="navbar navbar-default navbar-success">
+    <nav class="navbar navbar-default navbar-inverse">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -16,11 +16,36 @@
                     <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
                     <li><a href="#">Saved Articles</a></li>
                 </ul>
-                <button type="button" class="btn btn-lg btn-warning navbar-btn">Scrape New Articles</button>
+                <button type="button" class="btn btn-warning navbar-btn" data-toggle="modal" data-target="#scrapeModal">Scrape New Articles</button>
             </div>
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container-fluid -->
     </nav>
+    <div class="jumbotron">
+        <div class="banner">
+            <h1>Wall Street Journal</h1>
+            <h1>Scraper</h1>
+        </div>
+    </div>
     <div class="container-fluid">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h4>No articles currently available. Please click on the Scrape New Articles button to display your articles.</h4>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="scrapeModal" tabindex="-1" role="dialog" aria-labelledby="scrapeModal">
+        <div class="modal-dialog  modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4>20 New Articles Scraped</h4>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
     </div>
