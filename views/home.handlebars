@@ -14,9 +14,9 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
-                    <li><a href="#">Saved Articles</a></li>
+                    <li><a href="/saved">Saved Articles</a></li>
                 </ul>
-                <button type="button" class="btn btn-warning navbar-btn" data-toggle="modal" data-target="#scrapeModal">Scrape New Articles</button>
+                <button type="button" class="btn btn-warning navbar-btn" id="scrape-btn">Scrape New Articles</button>
             </div>
             <!-- /.navbar-collapse -->
         </div>
@@ -29,11 +29,27 @@
         </div>
     </div>
     <div class="container-fluid">
-        <div class="panel panel-default">
+    {{#if data}}
+    {{#each data}}
+    {{#if new}}
+        <div class="panel panel-warning">
+            <div class="panel-heading">
+                <h3>{{this.title}}</h3>
+            </div>
+            <div class="panel-body">
+                <a href="{{this.link}}" target="_blank">{{this.link}}</a>
+            </div>
+
+        </div>
+    {{/if}}
+    {{/each}}
+        {{else}}
+        <div class="panel panel-default no-saved">
             <div class="panel-body">
                 <h4>No articles currently available. Please click on the Scrape New Articles button to display your articles.</h4>
             </div>
         </div>
+    {{/if}}
     </div>
     <!-- Modal -->
     <div class="modal fade" id="scrapeModal" tabindex="-1" role="dialog" aria-labelledby="scrapeModal">

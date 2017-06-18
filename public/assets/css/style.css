@@ -44,11 +44,13 @@
     margin-bottom: 15px;
 }
 
-.panel {
+.no-saved {
 	background-color: rgba(64, 0, 128, .9);
 	color: #fff;
 	text-align: center;
 }
+
+.saved
 
 #scrapeModal h4{
 	padding: 10px;
