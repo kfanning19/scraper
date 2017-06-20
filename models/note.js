@@ -6,6 +6,10 @@ var Schema = mongoose.Schema;
 // Create the Note schema
 var NoteSchema = new Schema({
   // Just a string
+  author:{
+    type: String, 
+    default: "Anonymous"
+  },
   contents: {
     type: String,
     validate: [
@@ -17,6 +21,10 @@ var NoteSchema = new Schema({
       // Error Message
       "Comment isn't long enough."
     ]
+  }, 
+    created: {
+    type: Date, 
+    default: Date.now
   }
 });
 
