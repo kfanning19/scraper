@@ -2,10 +2,7 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var logger = require("morgan");
-var mongoose = require("mongoose");
 
-// Set mongoose to leverage built in JavaScript ES6 Promises
-mongoose.Promise = Promise;
 // Initialize Express
 var app = express();
 
@@ -25,7 +22,7 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 
-var controller = require("./controllers/scraper.js")(app)
+var controller = require("./controllers/scraper.js")(app);
 
 
 app.listen(3000, function() {
