@@ -16,10 +16,10 @@
                     <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
                     <li><a href="/saved">Saved Articles</a></li>
                 </ul>
-                <form action="/scrape" method="GET" onsubmit="window.location.reload()">
-                        <input type="hidden" name="id">
-                        <button type="submit" class="btn btn-warning navbar-btn" id="scrape-btn">Scrape New Articles</button>
-                </form>
+                
+                        
+                        <button type="button" class="btn btn-warning navbar-btn" id="scrape-btn">Scrape New Articles</button>
+                
             </div>
             <!-- /.navbar-collapse -->
         </div>
@@ -35,20 +35,22 @@
         {{#each articles}}
                 <div class="panel panel-default saved">
                     <div class="panel-heading">
-                    {{#if this.saved}}
-                        <p class="save-btn"><span class="glyphicon glyphicon-ok"></span> Saved!</p>
-                    {{else}}
-                        <h3>{{this.title}}</h3>
-                                <form action="/save/articles/{{this._id}}" method="POST">
-                                <input type="hidden" name="id" value="{{this._id}}">
-                                <button type="submit" class="btn btn-danger save-btn">Save Article</button>
-                            </form>
-                    }
-                    }
+                        <div class="row">
+                            <div class="col-md-10">
+                                <p class="article-header"><a href="{{this.link}}" target="_blank">{{this.title}}</a></p>
+                            </div>
+                            <div class="col-md-2">
+                                {{#if this.saved}}
+                                    <p class="save-btn"><span class="glyphicon glyphicon-ok"></span> Saved!</p>
+                                {{else}}
+                                  <button type="button" class="btn btn-warning save-btn" data-id="{{this.id}}">Save Article</button>
+                                {{/if}} 
+                            </div>
+                        </div>      
                     </div>
-                    {{/if}}
+                    
                     <div class="panel-body">
-                        <a href="{{this.link}}" target="_blank">{{this.link}}</a>
+                        <p>{{this.summary}}</p>
                     </div>
                 </div>
         {{/each}}

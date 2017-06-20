@@ -33,26 +33,30 @@
             {{#if this.saved}}
             <div class="panel panel-default saved">
                 <div class="panel-heading">
-                    <h3><a href="{{this.link}}">{{this.title}}</a></h3>
-                    <form action="/article/{{this._id}}?_method=DELETE" method="POST">
-                        <input type="hidden" name="id" value="{{this._id}}">
-                        <button type="submit" class="btn btn-danger">Delete Article</button>
-                    </form>
-                    <button type="button" class="btn btn-warning navbar-btn" data-toggle="modal" data-target="#commentModal-{{this._id}}"></button>
+                    <div class="row">
+                    <div class="col-md-10">
+                        <p class="article-header"><a href="{{this.link}}" target="_blank">{{this.title}}</a></p>
+                     </div>
+                     <div class="col-md-2">
+                        <button type="button" class="btn btn-success unsave-btn" data-id="{{this._id}}">Delete Article</button>
+                    
+                        <button type="button" class="btn btn-warning navbar-btn" data-toggle="modal" data-target="#commentModal-{{this._id}}">Comment</button>
+                   </div>
+                    </div>
                 </div>
                 <div class="panel-body">
                     <p>{{this.summary}}</p>
                 </div>
             </div>
             
-            {{/if}}
+           {{/if}}
         {{/each}}
-    {{else}}
-        <div class="panel panel-default no-saved">
-            <div class="panel-body">
-                <h4>No articles currently saved.</h4>
+        {{else}}
+            <div class="panel panel-default no-saved">
+                <div class="panel-body">
+                    <h4>No articles currently saved.</h4>
+                </div>
             </div>
-        </div>
     {{/if}}
     </div>
     <!-- Modal -->
@@ -71,17 +75,19 @@
                             <div class="panel-body">
                                 <p>{{this.notes.author}} says:</p>
                                 <p>{{this.notes.contents}}</p>
-                            <form action="/notes/{{this._id}}?_method=DELETE" method="POST">
-                                <input type="hidden" name="id" value="{{this._id}}">
-                                <button type="submit" class="btn btn-danger">Delete Note</button>
-                            </form>
+                            
+                                <button type="button" class="btn btn-danger delete-note-btn" data-id="{{this.notes._id}}">Delete Note</button>
+                            
                             </div>
                         </div>
                     {{/if}}
-                    <form class="create-update-form" action="articles/{{this._id}}" method="POST">
-                    <textarea id="newNote" name="name">  
+                    <form class="create-update-form newNote-form">
+                    <label for="author">Name:
+                        <input type="text" name="author" class="form-control" placeholder="your name">
+                    </label> 
+                    <textarea id="newNote" name="newNote"> 
                     </textarea>
-                    <button class= "btn btn-warning" type="submit" id="newNote-btn">Add Note</button>
+                    <button class= "btn btn-warning newNote-btn" type="submit" data-id="{{this._id}}">Add Note</button>
                   </form>
                   </div>
                   <div class="modal-footer">
