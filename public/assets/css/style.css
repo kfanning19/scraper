@@ -52,6 +52,9 @@
 	background-color: rgba(128, 0, 96, .9);
 	color: #fff;
 }
+.save-btn{
+	float: right;
+}
 #scrapeModal h4{
 	padding: 10px;
 	text-align: center;

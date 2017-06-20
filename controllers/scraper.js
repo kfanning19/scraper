@@ -44,12 +44,7 @@ module.exports = function(app) {
     });
     // A GET request to scrape the echojs website
     app.get("/scrape", function(req, res) {
-        Article.update({}, { $set: { new: false } }, { multi: true }).exec( function(errors, documents) {
-            if (errors) {
-                console.log(errors)
-            } else
-            // First, we grab the body of the html with request
-            {
+
                 request("http://www.npr.org/sections/news/", function(error, response, html) {
                     // Then, we load that into cheerio and save it to $ for a shorthand selector
                     var $ = cheerio.load(html);
@@ -84,14 +79,12 @@ module.exports = function(app) {
                 });
                 // Tell the browser that we finished scraping the text
                 res.render("home", { articles: doc });
-            }
-        });
     });
 
     // This will get the articles we scraped from the mongoDB
     app.get("/articles", function(req, res) {
         // Grab every doc in the Articles array
-        Article.find({}, function(error, doc) {
+        Article.find({}).sort(sort({ "created": -1 })).exec(function(error, doc) {
             // Log any errors
             if (error) {
                 console.log(error);
