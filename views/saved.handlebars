@@ -27,11 +27,11 @@
         </div>
     </div>
     <div class="container-fluid">
-    {{#if Article}}
-        {{#each Article}}
+    {{#if articles}}
+        {{#each articles}}
             
             {{#if this.saved}}
-            <div class="panel panel-default">
+            <div class="panel panel-default saved">
                 <div class="panel-heading">
                     <h3><a href="{{this.link}}">{{this.title}}</a></h3>
                     <form action="/article/{{this._id}}?_method=DELETE" method="POST">
@@ -56,8 +56,8 @@
     {{/if}}
     </div>
     <!-- Modal -->
-    {{#if Article}}
-        {{#each Article}}    
+    {{#if articles}}
+        {{#each articles}}    
             <div class="modal fade" id="commentModal-{{this._id}}" tabindex="-1" role="dialog" aria-labelledby="myCommentModalLabel">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -86,7 +86,6 @@
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
                   </div>
                 </div>
               </div>

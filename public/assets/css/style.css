@@ -20,13 +20,8 @@
 
 }
 
-.banner h2 {
-	font-size: 80px;
-	font-style: normal;
-}
-
 @media  only screen and (max-width: 780px){
-	.banner h1, .banner h2{
+	.banner h1{
 		font-size: 72px;
 
 	}
@@ -35,7 +30,7 @@
 	}
 }
 @media  only screen and (max-width: 500px){
-	.banner h1, .banner h2{
+	.banner h1 {
 		font-size: 48px;
 	}
 }
@@ -50,8 +45,13 @@
 	text-align: center;
 }
 
-.saved
-
+.saved{
+	border-color: rgba(128, 0, 96, .9);
+}
+.saved .panel-heading{
+	background-color: rgba(128, 0, 96, .9);
+	color: #fff;
+}
 #scrapeModal h4{
 	padding: 10px;
 	text-align: center;

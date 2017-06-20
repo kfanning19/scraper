@@ -121,7 +121,7 @@ module.exports = function(app) {
                 }
             });
     });
-    app.get("save/articles/:id", function(req, res){
+    app.post("save/articles/:id", function(req, res){
         Article.findOneAndUpdate({ "_id": req.params.id }, {$set:{saved: true}}).exec(function(err, doc){
             if(err){
                 console.log(err)
@@ -130,7 +130,7 @@ module.exports = function(app) {
             }
         })
     });
-        app.get("unsave/articles/:id", function(req, res){
+        app.post("unsave/articles/:id", function(req, res){
         Article.findOneAndUpdate({ "_id": req.params.id }, {$set:{saved: false}}).exec(function(err, doc){
             if(err){
                 console.log(err)
